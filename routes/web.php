@@ -35,4 +35,4 @@ Route::fallback(function () {
 
 
 // Exemplos para testes
-Route::get('/teste','TesteController@teste')->name('teste');
+Route::get('/teste/{parametro1}/{parametro2}','TesteController@teste')->name('teste');
