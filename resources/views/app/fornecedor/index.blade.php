@@ -16,28 +16,23 @@
     -$var
     */
 @endphp
+
 @isset($fornecedores)
-    Nome do Fornecedor: {{$fornecedores [0]['nome']}}
+    @forelse ($fornecedores as $indice => $fornecedor)
+    Nome do Fornecedor: {{$fornecedor['nome']}}
     <br>
-    Status do Fornecedor: {{$fornecedores [0]['status']}}
+    Status do Fornecedor: {{$fornecedor['status']}}
     <br>
-    CNPJ do Fornecedor: {{$fornecedores[0]['cnpj']}}
+    CNPJ do Fornecedor: {{$fornecedor['cnpj']}}
     <br>
-    Telefone do Fornecedor: ({{$fornecedores[0]['ddd'] ?? ''}}) {{$fornecedores[0]['telefone'] ?? ''}}
-    @switch($fornecedores[0]['ddd'])
-        @case('61')
-            /Brasilia - DF
-            @break
-        @case('62')
-            /Goiania - GO
-            @break
-        @case('32')
-            /Boa Esperança - MG
-            @break
-        @default
-            Estado não identificado
-    @endswitch
+    Telefone do Fornecedor: ({{$fornecedor['ddd'] ?? ''}}) {{$fornecedor['telefone'] ?? ''}}
+    <hr>
+    @empty
+        Não existem fornecedores cadastrados!
+    @endforelse
 @endisset
+
+
 
 
 

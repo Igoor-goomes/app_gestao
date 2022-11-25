@@ -8,6 +8,7 @@ class FornecedorController extends Controller
 {
     public function index()
     {
+
         $fornecedores =[
             0 => [
             'nome'=>'IGEPLAC',
@@ -31,6 +32,7 @@ class FornecedorController extends Controller
                 'telefone'=>'99597-8558'
             ],
         ];
+
         return view('app.fornecedor.index',compact('fornecedores'));
     }
 }
