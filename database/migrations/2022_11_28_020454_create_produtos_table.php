@@ -36,9 +36,3 @@ class CreateProdutosTable extends Migration
     }
 }
 
-//nome - string
-//descrição - text
-//peso - integer
-//preco_venda - float
-//estoque_minimo - integer
-//estoque_maximo - integer
