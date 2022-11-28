@@ -123,8 +123,15 @@ button:hover {
     height: 100%;
 }
 
-.informacoes, .contato {
+.informacoes, .img_estoque {
     margin: 100px 40px 40px 40px;
+}
+
+.imagem-estoque {
+    border: 2px;
+    margin: 4px;
+    width:100%;
+    height:100%;
 }
 
 .contato-principal {

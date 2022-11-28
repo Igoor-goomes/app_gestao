@@ -5,13 +5,14 @@
     
     <div class="conteudo-pagina">
         <div class="titulo-pagina">
-            <h1>Olá, eu sou o Super Gestão</h1>
+            <h1>Olá, Seja Bem Vindo ao Gestão de Estoque</h1>
         </div>
 
         <div class="informacao-pagina">
-            <p>O Super Gestão é o sistema online de controle administrativo que pode transformar e potencializar os negócios
+            <p>O Sistema Gestão de Estoque é o sistema online de controle e gestão coompleta do seu estoque que pode transformar e potencializar os negócios
                 da sua empresa.</p>
             <p>Desenvolvido com a mais alta tecnologia para você cuidar do que é mais importante, seus negócios!</p>
+            <img src="{{ asset('img/sobre-estoque.png') }}">
         </div>
     </div>
 
@@ -24,9 +25,9 @@
         </div>
         <div class="area-contato">
             <h2>Contato</h2>
-            <span>(11) 3333-4444</span>
+            <span>(61) 3370-7070</span>
             <br>
-            <span>supergestao@dominio.com.br</span>
+            <span>gestaoestoque@dominio.com.br</span>
         </div>
         <div class="localizacao">
             <h2>Localização</h2>
