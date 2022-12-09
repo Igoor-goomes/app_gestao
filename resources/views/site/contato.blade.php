@@ -10,13 +10,13 @@
 
         <div class="informacao-pagina">
             <div class="contato-principal">
-                @component('layout._components.form_contato',['classe'=>'borda-preta'])
+                @component('layout._components.form_contato',['classe'=>'borda-preta', 'motivo_contatos' => $motivo_contatos])
                     <p>Desde já agradecemos o contato, nosso tempo estimado de retorno é de até 24 horas!</p>                   
                 @endcomponent
             </div>
         </div>
     </div>
-
+    
     <div class="rodape">
         <div class="redes-sociais">
             <h2>Redes sociais</h2>
