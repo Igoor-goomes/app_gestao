@@ -20,14 +20,17 @@ Route::get('/', 'PrincipalController@principal')->name('site.index');
 Route::get('/sobre', 'SobreNosController@sobreNos')->name('site.sobre');
 Route::get('/contato', 'ContatoController@contato')->name('site.contato');
 Route::post('/contato', 'ContatoController@salvar')->name('site.contato');
-Route::get('/login', function (){return 'Login';})->name('site.login');
+Route::get('/login/{erro?}', 'LoginController@index')->name('site.login');
+Route::post('/login', 'LoginController@autenticar')->name('site.login');
 
 
 //Grupo de rotas - app
 Route::middleware('autenticacao:padrao,visitante')->prefix('/app')->group(function(){
-    Route::get('/dashboard', function (){return 'Dashboard';})->name('app.dashboard');
-    Route::get('/fornecedores', 'FornecedorController@index')->name('app.fornecedores');
-    Route::get('/produtos', function (){return 'Produtos';})->name('app.produtos');
+    Route::get('/home', 'HomeController@index')->name('app.home');
+    Route::get('/sair', 'LoginController@sair')->name('app.sair');
+    Route::get('/dashboard', 'DashboardController@index')->name('app.dashboard');
+    Route::get('/fornecedor', 'FornecedorController@index')->name('app.fornecedor');
+    Route::get('/produto', 'ProdutoController@index')->name('app.produto');
 });
 
 //Rotas de contigência (fallback)
