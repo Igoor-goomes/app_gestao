@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,9 +24,8 @@ Route::get('/login', function (){return 'Login';})->name('site.login');
 
 
 //Grupo de rotas - app
-
-Route::prefix('/app')->group(function(){
-    Route::get('/clientes', function (){return 'Clientes';})->name('app.clientes');
+Route::middleware('autenticacao:padrao,visitante')->prefix('/app')->group(function(){
+    Route::get('/dashboard', function (){return 'Dashboard';})->name('app.dashboard');
     Route::get('/fornecedores', 'FornecedorController@index')->name('app.fornecedores');
     Route::get('/produtos', function (){return 'Produtos';})->name('app.produtos');
 });
