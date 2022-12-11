@@ -13,8 +13,9 @@ class AutenticacaoMiddleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next, $metodo_autenticacao, $perfil)
-    {
+    public function handle($request, Closure $next, $metodo_autenticacao, $usuario)
+    {       
+        
         session_start();
 
         if (isset($_SESSION['email']) && $_SESSION['email'] != '') {
@@ -22,5 +23,6 @@ class AutenticacaoMiddleware
         } else {
             return redirect()->route('site.login', ['erro' => 2]);
         }
+        
     }
 }

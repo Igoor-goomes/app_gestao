@@ -23,23 +23,23 @@ class ContatoController extends Controller
        
         $regras_validacao = [
 
-            'nome'           => 'required|min:3|max:100|unique:site_contatos',
-            'telefone'       => 'required',
-            'email'          => 'email',  //validação de email
+            'nome'           => 'required',
+            'telefone'       => 'required|unique:site_contatos',
+            'email'          => 'email|unique:site_contatos',  //validação de email
             'motivo_contatos_id' => 'required',
-            'mensagem'       => 'required|max:2000'
+            'mensagem' => 'required',
             
         ];
 
         $regras_feedback = [
             
-            'nome.min' => 'O campo nome precisa ter no mínimo 3 caracteres',
-            'nome.max' => 'O campo nome precisa ter no máximo 100 caracteres',
-            'nome.unique' => 'O nome informado já está em uso',
+            'nome.required' => 'O campo deve ser preenchido',
+            'telefone.required' => 'O campo deve ser preenchido',
+            'telefone.unique' => 'O telefone informado já encontra-se em nossa base de dados',
             'email.email' => 'O e-mail informado não é válido',
-            
-            'mensagem.max' => 'A mensagem deve ter no máximo 2000 caracteres',
-            'required' => 'O campo :attribute deve ser preenchido'
+            'email.unique' => 'O e-mail informado já encontra-se em nossa base de dados',
+            'motivo_contatos_id.required' => 'Selecione uma das opções',
+            'mensagem.required' => 'Campo não pode ser enviado em branco'
         ];
         // validação dos dados do recebidos do formulário
         $request->validate($regras_validacao,$regras_feedback);

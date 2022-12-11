@@ -6,11 +6,11 @@
 
     <div class="menu">
         <ul>
-            <li><a href="{{ route('app.home') }}">Home</a></li>
+            <li><a href="#">Seja Bem vindo(a) {{Auth::user()->name}}</a></li>
             <li><a href="{{ route('app.dashboard') }}">Dashboard</a></li>
             <li><a href="{{ route('app.fornecedor') }}">Fornecedor</a></li>
             <li><a href="{{ route('app.produto') }}">Produto</a></li>
-            <li><a href="{{ route('app.sair') }}">Sair</a></li>
+            <li><a href="{{ route('site.login') }}">Sair</a></li>
         </ul>
     </div>
 </div>

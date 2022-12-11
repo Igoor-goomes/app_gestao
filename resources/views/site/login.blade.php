@@ -5,17 +5,25 @@
 
     <div class="conteudo-pagina">
         <div class="titulo-pagina">
-            <h1>Gestão de Estoque</h1>
+            <h1>Gestão de Estoque | Login</h1>
         </div>
         <div class="informacao-pagina">
             <div style="width: 30%; margin-left: auto; margin-right: auto">
                 <form action="{{ route('site.login') }}" method="post">
                     @csrf
-                    <input name="usuario" value="{{ old('usuario') }}" type="text" placeholder="Usuário" class="borda-preta">
-                    {{ $errors->has('usuario') ? $errors->first('usuario') : ''}}
-                    <input name="senha" value="{{ old('senha') }}" type="password" placeholder="Senha do Usuário" class="borda-preta">
-                    {{ $errors->has('senha') ? $errors->first('senha') : ''}}
-                    <button type="submit" class="borda-preta">Acessar</button>
+                    <div class="form-group{{ $errors->has('usuario') ? ' has-error' : '' }}">
+                        <input name="usuario" value="{{ old('usuario') }}" type="text" class="form-control" placeholder="E-mail">
+                            @if($errors->has('usuario'))
+                                <span class="help-block">{{ $errors->first('usuario') }}</span>
+                            @endif
+                    </div>
+                    <div class="form-group{{ $errors->has('senha') ? ' has-error' : '' }}">
+                        <input name="senha" value="{{ old('senha') }}" type="password" class="form-control" placeholder="Senha">
+                            @if($errors->has('senha'))
+                                <span class="help-block">{{ $errors->first('senha') }}</span>
+                            @endif
+                    </div>
+                    <button type="submit" class="btn btn-success">Acessar</button>
                 </form>
                 {{ isset($erro) && $erro != '' ? $erro : '' }}
             </div>

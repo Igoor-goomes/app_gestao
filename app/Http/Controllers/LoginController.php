@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -41,24 +42,14 @@ class LoginController extends Controller
         $email = $request->get('usuario');
         $password = $request->get('senha');
 
-        echo "Usuário: $email | Senha: $password ";
-        echo '<br>';
-
         //Iniciar o Model User
-        $user = new User();
-        
-        $usuario = $user->where('email', $email)
+        $usuario = User::where('email', $email)
                     ->where('password', $password)
                     ->get()
                     ->first();
-
-        if(isset($usuario->name)) {
-            session_start();
-            $_SESSION['nome'] = $usuario->name;
-            $_SESSION['email'] = $usuario->email;
-
+        if($usuario) {
+            Auth::login($usuario);
             return redirect()->route('app.dashboard');
-
         } else {
             return redirect()->route('site.login', ['erro' => 1]);
         }
@@ -66,7 +57,8 @@ class LoginController extends Controller
 
     public function sair ()
     {
-        session_destroy();
+        // session_destroy();
+        Auth::logout();
         return redirect()->route('site.index');
     }
 }
