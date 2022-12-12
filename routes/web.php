@@ -29,17 +29,18 @@ Route::prefix('/app')->group(function(){
     Route::get('/home', 'HomeController@index')->name('app.home');
     Route::get('/sair', 'LoginController@sair')->name('app.sair');
     Route::get('/dashboard', 'DashboardController@index')->name('app.dashboard');
+        
     Route::get('/fornecedor', 'FornecedorController@index')->name('app.fornecedor');
+    Route::post('/fornecedor/show', 'FornecedorController@show')->name('app.fornecedor.show');
+    Route::get('/fornecedor/novo', 'FornecedorController@create')->name('app.fornecedor.create');
+    
     Route::get('/produto', 'ProdutoController@index')->name('app.produto');
 });
 
 //Rotas de contigência (fallback)
-
 Route::fallback(function () {
     echo 'URL acessada não existe, <a href="'.route('site.index').'">clique aqui</a> para ir para página principal'; 
 });
-
-
 
 // Exemplos para testes
 

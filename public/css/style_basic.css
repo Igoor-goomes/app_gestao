@@ -165,6 +165,20 @@ button:hover {
     text-align: center;
 }
 
+.titulo-app-fornecedor {
+    padding: 70px 0px 10px 0px;
+    margin-bottom: 10px;
+    background-color: #2a9ee2;
+    text-align: center;
+}
+
+.info-app-fornecedor {
+    width: 30%;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .informacao-pagina {
     text-align: center;
     margin-top: 30px;

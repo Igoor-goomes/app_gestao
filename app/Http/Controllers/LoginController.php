@@ -43,10 +43,8 @@ class LoginController extends Controller
         $password = $request->get('senha');
 
         //Iniciar o Model User
-        $usuario = User::where('email', $email)
-                    ->where('password', $password)
-                    ->get()
-                    ->first();
+        $usuario = User::where('email', $email)->where('password', $password)->get()->first();
+
         if($usuario) {
             Auth::login($usuario);
             return redirect()->route('app.dashboard');
@@ -59,6 +57,6 @@ class LoginController extends Controller
     {
         // session_destroy();
         Auth::logout();
-        return redirect()->route('site.index');
+        return redirect()->route('site.login');
     }
 }
