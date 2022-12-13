@@ -179,6 +179,17 @@ button:hover {
     margin-right: auto;
 }
 
+.info-app-fornecedor-table {
+    width: 90%;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.table-color {
+    background: #6eb4fa;
+}
+
 .informacao-pagina {
     text-align: center;
     margin-top: 30px;

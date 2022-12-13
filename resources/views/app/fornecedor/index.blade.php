@@ -10,7 +10,7 @@
         <div class="menu">
             <ul>
                 <li><a href="{{ route('app.fornecedor.create') }}">Novo</a></li>
-                <li><a href="#">Consulta</a></li>
+                <li><a href="{{ route('app.fornecedor') }}">Consulta</a></li>
             </ul>
         </div>
 
@@ -22,7 +22,7 @@
                     <input type="text" name="site" placeholder="Site" class="form-control" style="margin-bottom: 20px">
                     <input type="text" name="uf" placeholder="UF" class="form-control" style="margin-bottom: 20px">
                     <input type="text" name="email" placeholder="E-mail" class="form-control" style="margin-bottom: 20px">
-                    <button type="submit" class="btn btn-outline-success">Pesquisar</button>
+                    <button type="submit" class="btn btn-success">Pesquisar</button>
                 </form>
             </div>
         </div>

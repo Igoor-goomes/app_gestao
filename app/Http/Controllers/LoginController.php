@@ -16,10 +16,6 @@ class LoginController extends Controller
             $erro ='Usuário e ou senha não existe';
         }
 
-        if($request->get('erro') == 2) {
-            $erro ='Necessário realizar login para ter acesso a página';
-        }
-
         return view('site.login', ['titulo' => 'Login', 'erro' => $erro]);
     }
 

@@ -25,7 +25,9 @@
                     </div>
                     <button type="submit" class="btn btn-success">Acessar</button>
                 </form>
-                {{ isset($erro) && $erro != '' ? $erro : '' }}
+                @if ($errors->has('usuario')||$errors->has('senha'))
+                    <span class="help-block">Necessário realizar login para ter acesso a página</span>
+                @endif
             </div>
         </div>
         
