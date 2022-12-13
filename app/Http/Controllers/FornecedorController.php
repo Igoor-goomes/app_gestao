@@ -19,10 +19,10 @@ class FornecedorController extends Controller
             ->where('site','like','%'.$request->input('site').'%')
             ->where('uf','like','%'.$request->input('uf').'%')
             ->where('email','like','%'.$request->input('email').'%')
-            ->get();
+            ->paginate(10); //parâmetro de paginação
 
         // dd($fornecedores);
-        return view('app.fornecedor.show',['fornecedores' => $fornecedores]);
+        return view('app.fornecedor.show',['fornecedores' => $fornecedores, 'request' => $request->all()]);
     }
 
     public function create (Request $request)
@@ -83,6 +83,15 @@ class FornecedorController extends Controller
         $fornecedor = Fornecedor::find($id);
 
         return view('app.fornecedor.create', ['fornecedor' => $fornecedor, 'msg' => $msg]);
+    }
+
+    public function delete ($id)
+    {
+        // Fornecedor::find($id)->delete();
+        
+        Fornecedor::find($id)->forceDelete();
+
+        return redirect()->route('app.fornecedor');
     }
 
 }

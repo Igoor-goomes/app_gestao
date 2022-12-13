@@ -36,9 +36,11 @@ Route::group(['middleware' => ['auth']], function (){
             
         Route::get('/fornecedor', 'FornecedorController@index')->name('app.fornecedor');
         Route::post('/fornecedor/show', 'FornecedorController@show')->name('app.fornecedor.show');
+        Route::get('/fornecedor/show', 'FornecedorController@show')->name('app.fornecedor.show');
         Route::get('/fornecedor/novo', 'FornecedorController@create')->name('app.fornecedor.create');
         Route::post('/fornecedor/novo', 'FornecedorController@create')->name('app.fornecedor.create');
         Route::get('/fornecedor/editar/{id}/{msg?}', 'FornecedorController@edit')->name('app.fornecedor.edit');
+        Route::get('/fornecedor/excluir/{id}', 'FornecedorController@delete')->name('app.fornecedor.delete');
         
         Route::get('/produto', 'ProdutoController@index')->name('app.produto');
     });
