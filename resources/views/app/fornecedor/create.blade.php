@@ -25,22 +25,22 @@
                             <span class="help-block" style="color: #FF1A1A">{{$errors->first('nome')}}</span>
                         @endif
                     </div>
-                    <div class="form-group{{$errors->has('site') ? 'has-error' : ''}}">
-                        <input type="text" name="site" value="{{$fornecedor->site ?? old('site')}}" placeholder="Site" class="form-control" style="margin-bottom: 20px">                        
-                        @if ($errors->has('site'))
-                            <span class="help-block" style="color: #FF1A1A">{{$errors->first('site')}}</span>
-                        @endif
-                    </div>
-                    <div class="form-group{{$errors->has('uf') ? 'has-error' : ''}}">
-                        <input type="text" name="uf" value="{{$fornecedor->uf ?? old('uf')}}" placeholder="UF" class="form-control" style="margin-bottom: 20px">
-                        @if ($errors->has('uf'))
-                            <span class="help-block" style="color: #FF1A1A">{{$errors->first('uf')}}</span>
+                    <div class="form-group{{$errors->has('cnpj') ? 'has-error' : ''}}">
+                        <input type="text" name="cnpj" value="{{$fornecedor->cnpj ?? old('cnpj')}}" placeholder="CNPJ" class="form-control" style="margin-bottom: 20px">                        
+                        @if ($errors->has('cnpj'))
+                            <span class="help-block" style="color: #FF1A1A">{{$errors->first('cnpj')}}</span>
                         @endif
                     </div>
                     <div class="form-group{{$errors->has('email') ? 'has-error' : ''}}">
                         <input type="text" name="email" value="{{$fornecedor->email ?? old('email')}}" placeholder="E-mail" class="form-control" style="margin-bottom: 20px">
                         @if ($errors->has('email'))
                             <span class="help-block" style="color: #FF1A1A">{{$errors->first('email')}}</span>
+                        @endif
+                    </div>
+                    <div class="form-group{{$errors->has('uf') ? 'has-error' : ''}}">
+                        <input type="text" name="uf" value="{{$fornecedor->uf ?? old('uf')}}" placeholder="UF" class="form-control" style="margin-bottom: 20px">
+                        @if ($errors->has('uf'))
+                            <span class="help-block" style="color: #FF1A1A">{{$errors->first('uf')}}</span>
                         @endif
                     </div>
                     <button type="submit" class="btn btn-success">Cadastrar</button>

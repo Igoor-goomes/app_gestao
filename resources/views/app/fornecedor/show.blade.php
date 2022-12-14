@@ -21,9 +21,9 @@
                         <thead class="table-primary">
                             <tr>
                                 <th>Nome</th>
-                                <th>Site</th>
-                                <th>UF</th>
+                                <th>CNPJ</th>
                                 <th>E-mail</th>
+                                <th>UF</th>
                                 <th>#Atualizar</th>
                                 <th>#Excluir</th>
                             </tr>
@@ -33,9 +33,9 @@
                             @foreach ($fornecedores as $fornecedor)
                                 <tr>
                                     <td>{{$fornecedor->nome}}</td>
-                                    <td>{{$fornecedor->site}}</td>
-                                    <td>{{$fornecedor->uf}}</td>
+                                    <td>{{$fornecedor->cnpj}}</td>
                                     <td>{{$fornecedor->email}}</td>
+                                    <td>{{$fornecedor->uf}}</td>
                                     <td>
                                         <a href="{{route('app.fornecedor.edit', $fornecedor->id)}}" class="bi bi-pencil-fill">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">

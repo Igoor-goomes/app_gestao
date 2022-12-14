@@ -17,15 +17,18 @@ class CreateProdutoDetalhesTable extends Migration
             //colunas
             $table->id();
             $table->unsignedBigInteger('produto_id');
-            $table->string('fabricante', 30);
+            $table->string('marca', 30);
             $table->string('modelo', 50);
             $table->string('numero_serie', 10);
+            $table->integer('qt_estoque')->default(1);
+            $table->date('dt_entrada');
+            $table->date('dt_saida');
             $table->timestamps();
 
 
             //contraint
-            $table->foreign('produto_id')->references('id')->on('produtos');
-            //A coluna 'produto_id' da tabela'produto_detalhes' faz referencia a coluna 'id' da tabela 'produtos'
+            $table->foreign('produto_id')->references('id')->on('produtos');  //A coluna 'produto_id' da tabela 'produto_detalhes' faz referencia a coluna 'id' da tabela 'produtos'
+
             $table->unique('produto_id'); //garante o relacionamento de um para um
         });
     }
@@ -39,10 +42,5 @@ class CreateProdutoDetalhesTable extends Migration
     {
         Schema::dropIfExists('produto_detalhes');
          //rmovendo colunas antigas
-
-        // Schema::table('produto_detalhes', function (Blueprint $table) {
-        //     $table->dropForeign('produto_detalhes_produto_id_foreign');
-        //     $table->drop(['fabricante','modelo','numero_serie']);
-        // });
     }
 }

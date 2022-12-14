@@ -16,9 +16,9 @@ class FornecedorController extends Controller
     {
         // dd($request->all());
         $fornecedores = Fornecedor::where('nome','like','%'.$request->input('nome').'%')
-            ->where('site','like','%'.$request->input('site').'%')
-            ->where('uf','like','%'.$request->input('uf').'%')
+            ->where('cnpj','like','%'.$request->input('cnpj').'%')
             ->where('email','like','%'.$request->input('email').'%')
+            ->where('uf','like','%'.$request->input('uf').'%')
             ->paginate(10); //parâmetro de paginação
 
         // dd($fornecedores);
@@ -35,24 +35,29 @@ class FornecedorController extends Controller
             //Validando os dados
             $regras_app_fornecedor = [
                 'nome' => 'required',
-                'site' => 'required',
-                'uf' => 'required|min:2|max:2',
-                'email' => 'email'
+                'cnpj' => 'required',
+                'email' => 'email',
+                'uf' => 'required|min:2|max:2'
             ];
 
             $feedback_app_fornecedor = [
                 'nome.required' => 'O preechimento do campo nome é obrigatório',
-                'site.required' => 'O preechimento do campo site é obrigatório',
+                'cnpj.required' => 'O preechimento do campo cnpj é obrigatório',
+                'email.email'   => 'O preenchimento do campo email é obrigatório',
                 'uf.required'   => 'O preenchimento do campo uf é obrigatório',
                 'uf.min'        => 'O campo uf deve possuir no mínimo 2 caracteres',
-                'uf.max'        => 'O campo uf deve possuir no máximo 2 caracteres',
-                'email.email'   => 'O preenchimento do campo email é obrigatório'
+                'uf.max'        => 'O campo uf deve possuir no máximo 2 caracteres'
             ];
 
             $request->validate($regras_app_fornecedor, $feedback_app_fornecedor);
 
             //Passando valores preenchidos para o banco
-            Fornecedor::create($request->all());
+            Fornecedor::create([
+                'nome'  => $request->nome,
+                'cnpj'  => preg_replace('/\D/','', $request->cnpj) , //método preg_replace('/\D/','',$request->campo)|retira os caracteres especiais
+                'email' => $request->email,
+                'uf'    => $request->uf
+            ]);
 
             //mensagem de sucesso
             $msg = 'Cadastro realizado com sucesso!';
@@ -89,7 +94,7 @@ class FornecedorController extends Controller
     {
         // Fornecedor::find($id)->delete();
         
-        Fornecedor::find($id)->forceDelete();
+        Fornecedor::find($id)->delete();
 
         return redirect()->route('app.fornecedor');
     }

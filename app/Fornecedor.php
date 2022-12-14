@@ -13,5 +13,5 @@ class Fornecedor extends Model
     //Ajustando o nome da tabela no Model para um correto ORM
     protected $table ='fornecedores';
     //dterminando os atributos para passar via create
-    protected $fillable = ['nome','site','uf','email'];
+    protected $fillable = ['nome','cnpj','email','uf'];
 }

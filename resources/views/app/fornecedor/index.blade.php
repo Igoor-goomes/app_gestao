@@ -19,9 +19,9 @@
                 <form action="{{ route('app.fornecedor.show') }}" method="post">
                     @csrf
                     <input type="text" name="nome" placeholder="Nome Fornecedor" class="form-control" style="margin-bottom: 20px">
-                    <input type="text" name="site" placeholder="Site" class="form-control" style="margin-bottom: 20px">
-                    <input type="text" name="uf" placeholder="UF" class="form-control" style="margin-bottom: 20px">
+                    <input type="text" name="cnpj" placeholder="CNPJ" class="form-control" style="margin-bottom: 20px">
                     <input type="text" name="email" placeholder="E-mail" class="form-control" style="margin-bottom: 20px">
+                    <input type="text" name="uf" placeholder="UF" class="form-control" style="margin-bottom: 20px">
                     <button type="submit" class="btn btn-success">Pesquisar</button>
                 </form>
             </div>
