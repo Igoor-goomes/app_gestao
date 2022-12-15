@@ -42,7 +42,8 @@ Route::group(['middleware' => ['auth']], function (){
         Route::get('/fornecedor/editar/{id}/{msg?}', 'FornecedorController@edit')->name('app.fornecedor.edit');
         Route::get('/fornecedor/excluir/{id}', 'FornecedorController@delete')->name('app.fornecedor.delete');
         
-        Route::get('/produto', 'ProdutoController@index')->name('app.produto');
+        //Produtos
+        Route::resource('produto','ProdutoController');
     });
 });
 

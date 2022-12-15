@@ -24,8 +24,8 @@
                                 <th>CNPJ</th>
                                 <th>E-mail</th>
                                 <th>UF</th>
-                                <th>#Atualizar</th>
-                                <th>#Excluir</th>
+                                <th>Editar</th>
+                                <th>Excluir</th>
                             </tr>
                         </thead>
 
