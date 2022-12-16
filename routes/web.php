@@ -33,7 +33,9 @@ Route::group(['middleware' => ['auth']], function (){
         Route::get('/home', 'HomeController@index')->name('app.home');
         Route::get('/sair', 'LoginController@sair')->name('app.sair');
         Route::get('/dashboard', 'DashboardController@index')->name('app.dashboard');
-            
+        
+        // Fornecedor
+
         Route::get('/fornecedor', 'FornecedorController@index')->name('app.fornecedor');
         Route::post('/fornecedor/show', 'FornecedorController@show')->name('app.fornecedor.show');
         Route::get('/fornecedor/show', 'FornecedorController@show')->name('app.fornecedor.show');
@@ -41,11 +43,23 @@ Route::group(['middleware' => ['auth']], function (){
         Route::post('/fornecedor/novo', 'FornecedorController@create')->name('app.fornecedor.create');
         Route::get('/fornecedor/editar/{id}/{msg?}', 'FornecedorController@edit')->name('app.fornecedor.edit');
         Route::get('/fornecedor/excluir/{id}', 'FornecedorController@delete')->name('app.fornecedor.delete');
+
         
-        //Produtos
-        Route::resource('produto','ProdutoController');
+        // Produto
+        
+        Route::get('/produto', 'ProdutoController@index')->name('app.produto.index');
+        Route::get('/produto/show', 'ProdutoController@show')->name('app.produto.show');
+        Route::get('/produto/novo', 'ProdutoController@create')->name('app.produto.create');
+        Route::post('/produto/novo', 'ProdutoController@store')->name('app.produto.store');
+        Route::get('/produto/edit/{id}', 'ProdutoController@edit')->name('app.produto.edit');
+        Route::post('/produto/edit/{id}', 'ProdutoController@update')->name('app.produto.update');
+        Route::get('/produto/excluir/{id}', 'ProdutoController@destroy')->name('app.produto.destroy');
     });
 });
+
+// show ->get 
+// create->get,store->post
+// edit->get, update->post
 
 
 // Route::middleware('Authenticate')->prefix('/app')->group(function(){
@@ -62,3 +76,5 @@ Route::fallback(function () {
 // Exemplos para testes
 
 // Route::get('/teste/{parametro1}/{parametro2}','TesteController@teste')->name('teste');
+
+

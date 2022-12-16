@@ -9,7 +9,7 @@
 
         <div class="menu">
             <ul>
-                <li><a href="{{route('produto.index')}}">Voltar</a></li>
+                <li><a href="{{route('app.produto.index')}}">Voltar</a></li>
             </ul>
         </div>
 
@@ -26,7 +26,6 @@
                         <li class="list-group-item"><strong>Modelo: </strong>{{$produto->ds_modelo}}</li>
                         <li class="list-group-item"><strong>Número de Serie: </strong>{{$produto->nr_serie}}</li>
                         <li class="list-group-item"><strong>Data Entrada: </strong>{{$produto->dt_entrada}}</li>
-                        <li class="list-group-item"><strong>Data Saída: </strong>{{$produto->dt_saida}}</li>
                     </ul>
                 </div>
             </div>

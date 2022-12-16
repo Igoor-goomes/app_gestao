@@ -35,11 +35,15 @@ class LoginController extends Controller
         $request->validate($regra_login, $feedback_login);
 
         //recuperação dos parâmetros do formulário de login
+
         $email = $request->get('usuario');
         $password = $request->get('senha');
 
         //Iniciar o Model User
         $usuario = User::where('email', $email)->where('password', $password)->get()->first();
+        
+
+        //realizando login
 
         if($usuario) {
             Auth::login($usuario);

@@ -21,7 +21,7 @@ class CreateProdutoDetalhesTable extends Migration
             $table->string('ds_modelo', 50);
             $table->string('nr_serie', 10)->unique();
             $table->date('dt_entrada');
-            $table->date('dt_saida');
+            $table->date('dt_saida')->nullable();
             $table->timestamps();
 
 
