@@ -8,5 +8,5 @@ class Produto extends Model
 {
     //
     
-    protected $fillable = ['no_produto', 'descricao_produto', 'vr_mercado', 'qt_estoque', 'setor_id'];
+    protected $fillable = ['no_produto', 'ds_produto', 'vl_mercado', 'qt_produto'];
 }

@@ -16,9 +16,9 @@ class CreateProdutosTable extends Migration
         Schema::create('produtos', function (Blueprint $table) {
             $table->id();
             $table->string('no_produto', 70);
-            $table->text('descricao_produto', 200);
-            $table->float('vr_mercado',8,2)->default(0.01); //passando valor padrão
-            $table->integer('qt_estoque')->default(1);
+            $table->text('ds_produto', 200);
+            $table->float('vl_mercado',8,2)->default(0.01); //passando valor padrão
+            $table->integer('qt_produto')->default(1);
             $table->timestamps();
         });
     }

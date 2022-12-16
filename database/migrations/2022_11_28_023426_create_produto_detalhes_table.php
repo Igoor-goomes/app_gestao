@@ -17,10 +17,9 @@ class CreateProdutoDetalhesTable extends Migration
             //colunas
             $table->id();
             $table->unsignedBigInteger('produto_id');
-            $table->string('marca', 30);
-            $table->string('modelo', 50);
-            $table->string('numero_serie', 10);
-            $table->integer('qt_estoque')->default(1);
+            $table->string('no_marca', 30);
+            $table->string('ds_modelo', 50);
+            $table->string('nr_serie', 10)->unique();
             $table->date('dt_entrada');
             $table->date('dt_saida');
             $table->timestamps();

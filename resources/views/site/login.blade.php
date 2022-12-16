@@ -24,6 +24,7 @@
                             @endif
                     </div>
                     <button type="submit" class="btn btn-success">Acessar</button>
+                    <button type="submit" class="btn btn-success">Primeiro Acesso</button>
                 </form>
                 @if ($errors->has('usuario')||$errors->has('senha'))
                     <span class="help-block">Necessário realizar login para ter acesso a página</span>
