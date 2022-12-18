@@ -2,18 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 // Rotas via crontroller
 
 Route::get('/', 'PrincipalController@principal')->name('site.index');
@@ -29,52 +17,27 @@ Route::post('/login', 'LoginController@autenticar')->name('site.login');
 //Grupo de rotas - app
 
 Route::group(['middleware' => ['auth']], function (){
-    Route::group(['prefix' => '/app'], function (){
-        Route::get('/home', 'HomeController@index')->name('app.home');
-        Route::get('/sair', 'LoginController@sair')->name('app.sair');
-        Route::get('/dashboard', 'DashboardController@index')->name('app.dashboard');
-        
-        // Fornecedor
+    Route::group(['prefix' => '/app'], function (){      
 
-        Route::get('/fornecedor', 'FornecedorController@index')->name('app.fornecedor');
-        Route::post('/fornecedor/show', 'FornecedorController@show')->name('app.fornecedor.show');
-        Route::get('/fornecedor/show', 'FornecedorController@show')->name('app.fornecedor.show');
-        Route::get('/fornecedor/novo', 'FornecedorController@create')->name('app.fornecedor.create');
-        Route::post('/fornecedor/novo', 'FornecedorController@create')->name('app.fornecedor.create');
-        Route::get('/fornecedor/editar/{id}/{msg?}', 'FornecedorController@edit')->name('app.fornecedor.edit');
-        Route::get('/fornecedor/excluir/{id}', 'FornecedorController@delete')->name('app.fornecedor.delete');
-
+        // Painel APP
         
-        // Produto
-        
-        Route::get('/produto', 'ProdutoController@index')->name('app.produto.index');
+        Route::get('/painel', 'ProdutoController@index')->name('app.produto.index');
         Route::get('/produto/show/{id}', 'ProdutoController@show')->name('app.produto.show');
         Route::get('/produto/novo', 'ProdutoController@create')->name('app.produto.create');
         Route::post('/produto/novo', 'ProdutoController@store')->name('app.produto.store');
         Route::get('/produto/edit/{id}', 'ProdutoController@edit')->name('app.produto.edit');
         Route::post('/produto/edit/{id}', 'ProdutoController@update')->name('app.produto.update');
         Route::get('/produto/excluir/{id}', 'ProdutoController@destroy')->name('app.produto.destroy');
+
+
+        // Logout do App Gestão de Estoque
+
+        Route::get('/sair', 'LoginController@sair')->name('app.sair');
     });
 });
 
-// show ->get 
-// create->get,store->post
-// edit->get, update->post
-
-
-// Route::middleware('Authenticate')->prefix('/app')->group(function(){
-// });
-
-
-//Rotas de contigência (fallback)
+//Rotas de contigência (fallback) | Not Found 404
 
 Route::fallback(function () {
     echo 'URL acessada não existe, <a href="'.route('site.index').'">clique aqui</a> para ir para página principal'; 
 });
-
-
-// Exemplos para testes
-
-// Route::get('/teste/{parametro1}/{parametro2}','TesteController@teste')->name('teste');
-
-

@@ -47,7 +47,7 @@ class LoginController extends Controller
 
         if($usuario) {
             Auth::login($usuario);
-            return redirect()->route('app.dashboard');
+            return redirect()->route('app.produto.index');
         } else {
             return redirect()->route('site.login', ['erro' => 1]);
         }
