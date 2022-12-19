@@ -26,7 +26,7 @@ Após executar esses comandos acima, vamos abrir nosso projeto no editor de text
 O campo **DB_PASSWORD** deve ser preenchido com sua senha do MySQL.
 
 ## Preparando as Migrations
-Logo que terminarmos a configuração do banco vamos precisar executar o comand dentro do terminal do próprio VS Code:
+Agora vamos ajustar o arquivo **AppServiceProvider.php** no seguinte diretorio *App\Providers* logo abaixo da linha *use Illuminate\Support\ServiceProvider;* vamos incluir *use Illuminate\Support\Facades\Schema;* e também lá no final do arquivo temos a **public function boot()** dentro de {} deve colocar o seguinte comando *Schema::defaultStringLength(191);* feito essas duas inclusões, salve o arquivo **AppServiceProvider.php**, feito esse ajuste vamos precisar executar o comand dentro do terminal do próprio VS Code:
 
 - **php artisan migrate:fresh**
 
