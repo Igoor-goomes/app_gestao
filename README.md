@@ -35,7 +35,12 @@ Logo que executar o comando **php artisan serve** você irar iniciar o serviço 
 
 ## Observações
 Caso tenha clonado o projeto para dentro de servidor localhost lembre-se de validar se o serviço está ativo em sua máquina.
-Em caso de duvidas favor entrar em contato via [E-mail](igorgomesdebrito.dev@gmail.com) ou via Linkedin [Linkedin](https://www.linkedin.com/in/igor-gomes-de-brito/).
+
+## Versões
+- PHP foi utilizado foi a versão: 7.2.34
+- Laravel foi utilizado a versão: 7
+- Servidor localhost **XAMPP** foi utilizado a versão: 3.3.0
+- Composer foi utilizado a versão: 2.4.2
 
 ## Considerações Finais
-O projeto foi desenvolvido visando questões de aprendizado, estou aberto a criticas construtivas e dicas referente ao que posso melhorar no projeto e também para minha carreira profissional, o projeto é simples mais com foco no conhecimento adiquirido através de cursos.
+O projeto foi desenvolvido visando questões de aprendizado, estou aberto a criticas construtivas e dicas referente ao que posso melhorar no projeto e também para minha carreira profissional, o projeto é simples mais com foco no conhecimento adiquirido através de cursos.Em caso de duvidas favor entrar em contato via [E-mail](igorgomesdebrito.dev@gmail.com) ou via Linkedin [Linkedin](https://www.linkedin.com/in/igor-gomes-de-brito/).
