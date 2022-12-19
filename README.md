@@ -30,6 +30,9 @@ Logo que terminarmos a configuração do banco vamos precisar executar o comand 
 
 - **php artisan migrate:fresh**
 
+## Criando seu Login de Acesso
+Logo que executar o comando **php artisan serve** você irar iniciar o serviço laravel, com isso ao acessar a página principal no formulário de registro deve-se registrar Nome, E-mail e Senha para conseguir ter acesso a plataforma.
+
 ## Observações
 Caso tenha clonado o projeto para dentro de servidor localhost lembre-se de validar se o serviço está ativo em sua máquina.
 Em caso de duvidas favor entrar em contato via [E-mail](igorgomesdebrito.dev@gmail.com) ou via Linkedin [Linkedin](https://www.linkedin.com/in/igor-gomes-de-brito/).
