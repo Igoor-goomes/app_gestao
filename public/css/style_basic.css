@@ -139,17 +139,9 @@ button:hover {
 }
 
 .chamada {
-    margin-top: 30px;
+    margin-top: 40px;
     margin-left: 20px;
-}
-
-.video {
-    margin: 40px;
-}
-
-.video img {
-    max-width: 100%;
-    max-height: 100%;
+    margin-bottom: 10px;
 }
 
 .conteudo-pagina {

@@ -5,57 +5,35 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use PhpParser\Node\Stmt\UseUse;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class LoginController extends Controller
 {
-    public function index (Request $request)
+    public function index () 
     {
-        $erro = '';
-        
-        if($request->get('erro') == 1) {
-            $erro ='Usuário e ou senha não existe';
-        }
-
-        return view('site.login', ['titulo' => 'Login', 'erro' => $erro]);
+        return view('site.login');
     }
 
-    public function autenticar (Request $request)
+    public function login (Request $request)
     {
-        //regras de validação de acesso ao sistema
-        $regra_login = [
-            'usuario' => 'email',
-            'senha' => 'required'
-        ];
-
-        $feedback_login = [
-            'usuario.email'  => 'O campo usuário (e-mail) é obrigatório',
-            'senha.required' => 'O campo senha é obrigatório'
-        ];
-
-        $request->validate($regra_login, $feedback_login);
-
-        //recuperação dos parâmetros do formulário de login
-
-        $email = $request->get('usuario');
-        $password = $request->get('senha');
-
-        //Iniciar o Model User
-        $usuario = User::where('email', $email)->where('password', $password)->get()->first();
         
-
-        //realizando login
-
-        if($usuario) {
-            Auth::login($usuario);
+        $email = $request->input('email');
+        $password = $request->get('password');
+                    
+        if(Auth::attempt(['email' => $email, 'password' => $password])) { 
             return redirect()->route('app.produto.index');
         } else {
-            return redirect()->route('site.login', ['erro' => 1]);
+            Alert::alert('','E-mail e/ou senha estão incorretos, por favor verifique!','error');
+            return back()->withInput();
         }
-    }
+
+        return back()->withInput();
+    } 
 
     public function sair ()
     {
-        // session_destroy();
         Auth::logout();
         return redirect()->route('site.login');
     }

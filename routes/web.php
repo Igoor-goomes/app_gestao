@@ -5,11 +5,18 @@ use Illuminate\Support\Facades\Route;
 // Rotas via crontroller
 
 Route::get('/', 'PrincipalController@principal')->name('site.index');
+Route::post('/novo', 'PrincipalController@novoUsuario')->name('site.registro');
 Route::get('/sobre', 'SobreNosController@sobreNos')->name('site.sobre');
 Route::get('/contato', 'ContatoController@contato')->name('site.contato');
 Route::post('/contato', 'ContatoController@salvar')->name('site.contato');
 Route::get('/login/{erro?}', 'LoginController@index')->name('site.login');
-Route::post('/login', 'LoginController@autenticar')->name('site.login');
+Route::post('/login', 'LoginController@login')->name('site.login');
+
+
+// Formulário de Registro
+
+// Route::get('/registro', 'NovoUsuarioController@create')->name('site.index.create');
+// Route::post('/registro', 'NovoUsuarioController@store')->name('site.index.store');
 
 
 

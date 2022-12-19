@@ -17,7 +17,7 @@
         <div class="info-app-fornecedor-table">
             <div class="card-body table-responsive">
                 <table class="table table-active projects">
-                    <thead class="table-primary">
+                    <thead class="table-dark">
                         <tr>
                             <th>Código do Produto</th>
                             <th>Nome</th>
@@ -34,7 +34,7 @@
                             <td>{{$produto->id}}</td>
                             <td>{{$produto->no_produto}}</td>
                             <td>{{$produto->ds_produto}}</td>
-                            <td>{{$produto->vl_mercado}}</td>
+                            <td>R${{number_format(($produto->vl_mercado),'2',',','.')}}</td>
                             <td>{{$produto->qt_produto}}</td>
                             <td>
                                 <a href="{{route('app.produto.show', $produto->id)}}" class="btn btn-info">
@@ -64,3 +64,4 @@
     </div>
 
 @endsection
+

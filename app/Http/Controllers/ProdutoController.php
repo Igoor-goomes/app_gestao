@@ -33,8 +33,7 @@ class ProdutoController extends Controller
             'vl_mercado' => 'required',
             'qt_produto' => 'required',
             'no_marca'   => 'required',
-            'ds_modelo'  => 'required',
-            'nr_serie'   => 'required'
+            'ds_modelo'  => 'required'
         ];
 
         $feedback_produto = [
@@ -44,8 +43,7 @@ class ProdutoController extends Controller
             'vl_mercado.required' => 'O preenchimento do campo valor de mercado é obrigatório',
             'qt_produto.required' => 'O preenchimento do campo quantidade em estoque é obrigatório',
             'no_marca.required' => 'O preenchimento do campo marca é obrigatório',
-            'ds_modelo.required' => 'O preenchimento do campo modelo é obrigatório',
-            'nr_serie.required' => 'O preenchimento do campo número de serie é obrigatório'
+            'ds_modelo.required' => 'O preenchimento do campo modelo é obrigatório'
         ];
 
         $request->validate($validacao_produto, $feedback_produto);
@@ -64,7 +62,6 @@ class ProdutoController extends Controller
                 'produto_id' => $produto->id,
                 'no_marca'   => $request->no_marca,
                 'ds_modelo'  => $request->ds_modelo,
-                'nr_serie'   => $request->nr_serie,
                 'dt_entrada' => Carbon::now()
             ]);
         } catch (\Exception $th) {

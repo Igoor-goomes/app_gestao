@@ -53,12 +53,6 @@
                             <span class="help-block" style="color: #FF1A1A">{{$errors->first('ds_modelo')}}</span>
                         @endif
                     </div>
-                    <div class="form-group{{$errors->has('nr_serie') ? 'has-error' : ''}}">
-                        <input type="text" name="nr_serie" value="{{$produto->nr_serie}}" placeholder="Número de Serie" class="form-control" style="margin-bottom: 20px" readonly>
-                        @if ($errors->has('nr_serie'))
-                            <span class="help-block" style="color: #FF1A1A">{{$errors->first('nr_serie')}}</span>
-                        @endif
-                    </div>
                     <button type="submit" class="btn btn-success">Salvar Alteração</button>
                 </form>
             </div>
