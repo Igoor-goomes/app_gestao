@@ -16,6 +16,7 @@ Dentro do servidor localhost instalado, faça o clone do projeto no GitHub - htt
 ## Configuração do Banco de Dados
 Por padrão quando se clona um projeto do GitHub, o arquivo *.env* é apenas um arquivo exemplo, com isso precisamos enviar alguns comandos via terminal para nosso diretorio, ao abrir o terminal navega a até a pasta do projeto, chegando nela execute os comandos abaixo:
 - **cp .env.example .env**
+- **composer install**
 - **php artisan key:generate**
 
 Após executar esses comandos acima, vamos abrir nosso projeto no editor de texto/IDE de sua prefêrencia e dentro do arquivo *.env* vamos precisar subistituir as seguintes linhas:
@@ -23,7 +24,7 @@ Após executar esses comandos acima, vamos abrir nosso projeto no editor de text
 - Por padrão os campos **DB_CONNECTION=mysql** | **DB_HOST=127.0.0.1** | **DB_PORT=3306** | **DB_USERNAME=root** já estaram configurados desta forma, caso não favor seguir com a substituição para conectarmos ao banco de dados.
 - Substituir **DB_DATABASE=laravel** para **DB_DATABASE=gestao-estoque** 
 
-O campo **DB_PASSWORD** deve ser preenchido com sua senha do MySQL.
+O campo **DB_PASSWORD** deve ser preenchido com sua senha do MySQL. Deve-se criar um database **gestao-estoque** dentro phpMyAdmin.
 
 ## Preparando as Migrations
 Agora vamos ajustar o arquivo **AppServiceProvider.php** no seguinte diretorio *App\Providers* logo abaixo da linha *use Illuminate\Support\ServiceProvider;* vamos incluir *use Illuminate\Support\Facades\Schema;* e também lá no final do arquivo temos a **public function boot()** dentro de {} deve colocar o seguinte comando *Schema::defaultStringLength(191);* feito essas duas inclusões, salve o arquivo **AppServiceProvider.php**, feito esse ajuste vamos precisar executar o comand dentro do terminal do próprio VS Code:
